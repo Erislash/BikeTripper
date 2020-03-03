@@ -1,0 +1,359 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+header{
+    width: 100%;
+    position:absolute; top:0; left:0;
+    z-index: 1000;
+}
+
+.MainNav{
+    width: 100%;
+    height: 10rem;
+    padding: 0 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.MainNav .Logo a{
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6em;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    outline: 2px solid #EEE;
+    padding: 1rem 2rem;
+    color: #EEE;
+    
+}
+.Logo{
+    transform: translateX(0px);
+    transition: transform .5s ease;
+    opacity: 1;
+}
+
+.IntroLogo{
+    transform: translateX(-300px);
+    opacity: 0;
+    transition: transform .5s ease;
+
+
+}
+
+.HamburguerMenu{
+    height: 5rem;
+    width: 5rem;
+    background: #eee;
+    border-radius: .4rem;
+    box-shadow: .5rem .5rem 1rem #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: .5;
+    transform: translateX(0px);
+    transition: transform .5s ease;
+}
+
+.HamburguerMenu:hover{
+    opacity: 1;
+    box-shadow: inset .5rem .5rem 1rem #CACACA,
+                inset -.5rem -.5rem 1rem #FFF;
+}
+
+.IntroHamburguerMenu{
+    transform: translateX(500px);
+    opacity: 0;
+    transition: transform .5s ease;
+    
+}
+
+.Bar{
+    width: 3rem;
+    height: 2px;
+    background: #333;
+    display: inline-block;
+    position: relative;
+    transition: background-color .5s cubic-bezier(.01,1.37,.79,1.1);
+}
+
+.Bar::before,
+.Bar::after{
+    content: "";
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background: #333;
+    transition: all .4s ease;
+}
+
+.Bar::after{
+    top: -.8rem;
+}
+.Bar::before{
+    top: .8rem;
+}
+
+.Open .Bar{
+    background-color: transparent;
+}
+
+.Open .Bar::before{
+    top: 0;
+    transform: rotate(135deg);
+}
+
+.Open .Bar::after{
+    top: 0;
+    transform: rotate(-135deg);
+}
+
+.NavList{
+    width: 50rem;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(55rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: -.5rem 0 1rem rgba(0, 0, 0, .2);
+    z-index: 1500;
+    transition: transform .4s;
+
+    background: url("IMG/BG4.jpg") #EEE center no-repeat;
+    background-size: cover;
+}
+
+.Open .NavList{
+    transform: translateX(0);
+}
+
+.NavItem{
+    list-style: none;
+}
+
+.NavItem::after{
+    content: "";
+    display: block;
+    transform:scaleX(0);
+    height: 1px;
+    background: rgb(146, 146, 146);
+    border-radius: 100%;
+    transition: all .3s;
+}
+
+.NavItem:hover::after{
+    transform:scaleX(1);
+}
+
+.NavLink{
+    text-decoration: none;
+    display: block;
+    color: #FFF;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: .5rem;
+    transition: color .4s;
+    position: relative;
+}
+
+.NavLink:hover{
+    color: rgb(146, 146, 146);
+}
+
+.Hero{
+    width: 100%;
+    height: 100vh;
+    background: url("IMG/BG2.jpg") center no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.Hero::after{
+    content: '';
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .5);
+}
+
+.HeroClipped{
+    width: 60%;
+    height: inherit;
+    background: #EEE;
+    position:absolute; top:0; right:0;
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 10% 100%);
+    z-index: 10;
+    transition: all .5s ease;
+    transform: translateX(0);
+    transform: scaleY(1);
+    opacity: .7;
+}
+
+.IntroHeroClipped{
+    transform: translateX(500px);
+    transition: all .5s ease;
+    opacity: 0;
+
+}
+
+.HeroTextBox{
+    width: 100%;
+    position: absolute;
+    top: 20%;
+    left: 60%;
+    transform: translate(-50%, 50%);
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.5;
+    color: #333;
+    padding: 1rem;
+    z-index: 20;
+}
+
+.MainHeading{
+    font-size: 5rem;
+    font-weight: 900;
+    letter-spacing: 1rem;
+}
+
+.SubHeading{
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: .6rem;
+}
+
+.CtaBtn{
+    display: inline-block;
+    padding: .8rem 2rem;
+    font-size: 1.2rem;
+    letter-spacing: .5rem;
+    text-decoration: none;
+    color: #fff;
+    background-color: rgb(24, 22, 20);
+    margin-top: 2rem;
+    border-radius: .3rem;
+    box-shadow: .3rem .3rem  1rem rgba(0, 0, 0, .3);
+    position: relative;
+}
+
+.CtaBtn::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: inherit;
+    z-index: -1;
+    transition: all .5s;
+}
+
+.CtaBtn:hover::after{
+    transform: scaleX(2.2) scaleY(2.7);
+    opacity: 0;
+}
+
+@media screen and (max-width: 910px){
+    .HeroClipped{
+        width: 100%;
+        height: 75vh;
+        clip-path: polygon(0 30%, 0% 100%, 100% 100%, 100% 50%);
+        top: auto;
+        bottom: 0;
+    }
+
+    .HamburguerMenu{
+        box-shadow: .1rem .5rem 1rem #333;
+    }
+
+    .HeroTextBox{
+        transform-origin: left;
+        left: 0;
+        top: 50%;
+        transform: translate(0, 0);
+    }
+
+    .IntroHeroClipped{
+        transform-origin: bottom;
+        transform: scaleY(0);
+    }
+
+    .MainHeading{
+        font-size: 4rem;
+    }
+
+    .SubHeading{
+        font-size: 1.2rem;
+    }
+    
+    .NavList{
+        transform: translateX(300rem);
+        width: 100%;
+    }
+    .NavItem::after{
+        display: none;
+    }
+    .NavLink::after{
+        content: '';
+        position: absolute;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: transparent;
+        transition: all .2s;
+    }
+
+    .NavLink:active::after{
+        background: #000;
+        transform: scaleX(2.8) scaleY(2.2);
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .HamburguerMenu{
+        width: 3.4rem;
+        height: 3.4rem;
+    }
+    .Bar{
+        width: 2rem;
+    }
+
+    .MainHeading{
+        font-size: 2.2rem;
+    }
+
+    .SubHeading{
+        font-size: .7rem;
+    }
+
+    .CtaBtn{
+        font-size: .7rem;
+        margin-top: 1rem;
+    }
+}

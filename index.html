@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BikeTripper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="MainNav">
+            <div class="Logo" id="Logo">
+                <a href="index.html">BikeTrip</a>
+            </div>
+
+            <div class="HamburguerMenu">
+                <div class="Bar"></div>
+            </div>
+
+            <ul class="NavList">
+                <li class="NavItem"><a href="index.html" class="NavLink">Home</a></li>
+                <li class="NavItem"><a href="#" class="NavLink">Locations</a></li>
+                <li class="NavItem"><a href="#" class="NavLink">Pricing</a></li>
+                <li class="NavItem"><a href="#" class="NavLink">Services</a></li>
+                <li class="NavItem"><a href="#" class="NavLink">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="Hero">
+        <div class="HeroClipped">
+            <div class="HeroTextBox">
+                <h1 class="MainHeading">BikeTripper</h1>
+                <h2 class="SubHeading">The Simple Pleasure Of A<br />Bike Ride</h2>
+                <a href="#" class="CtaBtn">Learn More</a>
+            </div>
+        </div>
+    </section>
+    
+</body>
+<script>
+
+    const mainNav = document.querySelector(".MainNav");
+    const navList = document.querySelector(".NavList");
+    const hamburguerMenu = document.querySelector(".HamburguerMenu");
+
+    hamburguerMenu.addEventListener('click', function(){
+        mainNav.classList.toggle('Open');
+    });
+
+</script>
+<script src="js.js"></script>
+</html>
